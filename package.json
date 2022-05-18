@@ -4,7 +4,7 @@
   "description": "My webpack project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "build": "webpack --mode=production --node-env=production",
     "build:dev": "webpack --mode=development",
     "build:prod": "webpack --mode=production --node-env=production",
@@ -28,6 +28,7 @@
     "react-dom": "^18.1.0"
   },
   "devDependencies": {
+    "@types/jest": "^27.5.1",
     "@webpack-cli/generators": "^2.4.2",
     "css-loader": "^6.7.1",
     "html-webpack-plugin": "^5.5.0",
@@ -35,7 +36,9 @@
     "mini-css-extract-plugin": "^2.6.0",
     "style-loader": "^3.3.1",
     "supertest": "^6.2.3",
+    "ts-jest": "^28.0.2",
     "ts-loader": "^9.3.0",
+    "ts-node": "^10.7.0",
     "typescript": "^4.6.4",
     "webpack": "^5.72.1",
     "webpack-cli": "^4.9.2"
