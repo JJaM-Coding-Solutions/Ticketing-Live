@@ -1,7 +1,7 @@
-const serverApp = require('./server.ts');
+const app = require('./server.ts');
 
 const port = 3000;
 
-serverApp.listen(port, ()=> {
+app.listen(port, ()=> {
   console.log(`Now listening to port:${port}`);
 });
