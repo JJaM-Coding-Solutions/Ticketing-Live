@@ -1,3 +1,3 @@
-const mockFunction = data => data;
+const mockFunction = (data: any) => data;
 
 module.exports = mockFunction;
