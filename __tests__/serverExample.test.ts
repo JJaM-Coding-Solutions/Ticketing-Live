@@ -1,3 +1,5 @@
+import type { Response, Request, Test } from 'supertest';
+
 const supertest = require('supertest');
 const serverApp = require('../server/server.ts');
 
