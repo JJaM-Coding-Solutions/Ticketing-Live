@@ -11,7 +11,7 @@ const postChat = async (postMessage: unknown) => {
   if ( typeof message !== 'string' || typeof user !== 'string' ) {
     throw new Error('Invalid message or user');
   }
-  const decoratedObject: SuccessfulPostMessage = Object.assign({time: new Date().toISOString()}, postMessage);
+  const decoratedObject: SuccessfulPostMessage = {...postMessage as Message, time: new Date().toISOString()};
   //TODO: add database logic here
   const postDB = await decoratedObject;
   return postDB;

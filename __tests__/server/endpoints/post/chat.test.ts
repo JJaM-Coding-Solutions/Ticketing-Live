@@ -4,6 +4,11 @@ interface ChatMessage {
   message: string,
   user: string,
 };
+interface PoorMessage {
+  message: null,
+  user: number,
+  cat: string,
+};
 
 describe('Chat message', () => {
   const input: ChatMessage = {
@@ -16,4 +21,13 @@ describe('Chat message', () => {
     expect(res).toHaveProperty('time');
     expect(res.status).toBe(200);
   });
-})
+  test('should reject with a thrown error if message shape is wrong', async () => {
+    const badInput: PoorMessage = {
+      message: null,
+      user: 1,
+      cat: 'meow',
+    };
+    const res = await postChatMessage(badInput);
+    expect(res).rejects.toThrow('Invalid message or user');
+  });
+});
