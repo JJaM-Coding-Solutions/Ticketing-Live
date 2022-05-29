@@ -14,9 +14,11 @@ describe('Server app', ()=> {
       expect(response.status).toBe(200);
     });
   });
-  describe('at get /home', () => {
-    test('should return an array of chat messages.', () => {
-
+  describe('at get /home endpoint', () => {
+    test('should return an array of chat messages.', async() => {
+      const response = await testServer.get('/home');
+      expect(response.status).toBe(200);
+      expect(response.body).toBeInstanceOf(Array);
     });
   });
 });
