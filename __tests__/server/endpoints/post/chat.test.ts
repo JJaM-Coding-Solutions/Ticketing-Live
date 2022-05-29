@@ -15,22 +15,22 @@ describe('Chat message', () => {
     message: 'Hello world',
     user: 'test',
   };
-  test('should return a Promise', async () => {
-    const res = await postChatMessage(input);
+  test('should return a Promise', () => {
+    const res = postChatMessage(input);
     expect(res).toBeInstanceOf(Promise);
   });
-  test('should return an object with a time key and string pair added if successful', async () => {
-    const res = await postChatMessage(input);
-    expect(res).toEqual(expect.objectContaining(input));
-    expect(res).toHaveProperty('time');
+  test('should return an object with a time key and string pair added if successful', () => {
+    const res = postChatMessage(input);
+    expect(res).resolves.toEqual(expect.objectContaining(input));
+    expect(res).resolves.toHaveProperty('time');
   });
-  test('should reject with a thrown error if message shape is wrong', async () => {
+  test('should reject with a thrown error if message shape is wrong', () => {
     const badInput: PoorMessage = {
       message: null,
       user: 1,
       cat: 'meow',
     };
-    const res = await postChatMessage(badInput);
+    const res = postChatMessage(badInput);
     expect(res).rejects.toThrow('Invalid message or user');
   });
 });
