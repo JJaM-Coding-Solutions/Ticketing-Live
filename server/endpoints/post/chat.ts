@@ -2,7 +2,7 @@ interface Message {
   message: string,
   user: string,
 };
-interface SuccessfulPostMessage extends Message {
+export interface SuccessfulPostMessage extends Message {
   time: string,
 };
 

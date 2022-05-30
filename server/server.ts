@@ -1,5 +1,7 @@
 import type { Request, Response } from "express";
+import type { SuccessfulPostMessage } from "./endpoints/post/chat";
 const getHome = require('./endpoints/get/home.ts');
+const postChat = require('./endpoints/post/chat.ts');
 
 const express = require('express');
 const path = require('path');
@@ -19,6 +21,17 @@ app.get( '/home', ( req: Request, res: Response ) => {
       res.status( 200 ).send( data );
     })
     .catch( ( err: string ) => {
+      res.status( 500 ).send( err );
+    });
+});
+
+app.post('/chat', (req: Request, res: Response) => {
+  const { message } = req.body;
+  postChat( message )
+    .then( ( data : SuccessfulPostMessage) => {
+      res.status( 200 ).send( data );
+    })
+    .catch( ( err: Error ) => {
       res.status( 500 ).send( err );
     });
 });
