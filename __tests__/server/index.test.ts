@@ -41,5 +41,10 @@ describe('Server app', () => {
       expect(response.body.time).not.toBeNaN();
       expect(Date.parse(response.body.time)).not.toBeNaN();
     });
+    test('should respond with status:400 when given a bad message', async () => {
+      const response = await testServer.post('/chat').send(failingMessage);
+      expect(response.status).toBe(400);
+      expect(response.text).toBe('Invalid message or user');
+    });
   });
 });

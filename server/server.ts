@@ -32,7 +32,7 @@ app.post('/chat', (req: Request, res: Response) => {
       res.status( 200 ).send( data );
     })
     .catch( ( err: Error ) => {
-      res.status( 500 ).send( err );
+      res.status( 400 ).send( err.message );
     });
 });
 
