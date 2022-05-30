@@ -26,7 +26,7 @@ app.get( '/home', ( req: Request, res: Response ) => {
 });
 
 app.post('/chat', (req: Request, res: Response) => {
-  const { message } = req.body;
+  const message = req.body;
   postChat( message )
     .then( ( data : SuccessfulPostMessage) => {
       res.status( 200 ).send( data );
