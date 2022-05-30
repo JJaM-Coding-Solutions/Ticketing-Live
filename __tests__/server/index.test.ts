@@ -22,6 +22,7 @@ describe('Server app', () => {
     });
   });
   describe('at post /chat endpoint', () => {
+
     const testMessage = {
       message: 'Greetings!',
       user: 'test',

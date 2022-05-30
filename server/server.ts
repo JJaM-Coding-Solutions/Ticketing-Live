@@ -1,7 +1,7 @@
 import type { Request, Response } from "express";
-import type { SuccessfulPostMessage } from "./endpoints/post/chat";
+import SuccessfulPostMessage from "./endpoints/post/chat";
 const getHome = require('./endpoints/get/home.ts');
-const postChat = require('./endpoints/post/chat.ts');
+const {postChat} = require('./endpoints/post/chat.ts');
 
 const express = require('express');
 const path = require('path');

@@ -2,7 +2,7 @@ interface Message {
   message: string,
   user: string,
 };
-export interface SuccessfulPostMessage extends Message {
+export default interface SuccessfulPostMessage extends Message {
   time: string,
 };
 
@@ -17,4 +17,4 @@ const postChat = async (postMessage: unknown) => {
   return postDB;
 };
 
-module.exports = postChat;
+module.exports.postChat = postChat;
